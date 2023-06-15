@@ -87,4 +87,20 @@ public class MenuCtrl {
 
         return "redirect:/templates/menu";
     }
+
+    /* 조회하기 */
+    @PostMapping("/menu_search")
+    public String doSearch(@RequestParam("start_date") String strStartDate,
+                           @RequestParam("end_date") String strEndDate,
+                           @RequestParam(value = "coffee", defaultValue = "ALL") String strCoffee,
+                           @RequestParam("kind") String strKind,
+                           Model model
+
+    ) {
+
+        List<Map<String, Object>> list = menuSvc.doSearch(strStartDate, strEndDate, strCoffee, strKind );
+
+        model.addAttribute("list", list);
+        return "/menu/menu";
+    }
 }
