@@ -53,4 +53,14 @@ public class MenuCtrl {
 
         return "redirect:/templates/menu";
     }
+
+    @GetMapping("/menu_del")
+    public String doDelete(@RequestParam("no") String strNO) {
+
+        log.info("strNO: "+strNO);
+
+        int i = menuSvc.doDelete(strNO);
+
+        return "redirect:/templates/menu";
+    }
 }

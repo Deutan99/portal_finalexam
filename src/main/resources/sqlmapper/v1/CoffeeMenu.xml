@@ -26,7 +26,7 @@
 <!--        where id = #{id}-->
 <!--    </update>-->
 
-<!--    <delete id="deleteAuthor">-->
-<!--        delete from Author where id = #{id}-->
-<!--    </delete>-->
+    <delete id="doDelete">
+        Delete from coffee_menu where no = #{strNo}
+    </delete>
 </mapper>
