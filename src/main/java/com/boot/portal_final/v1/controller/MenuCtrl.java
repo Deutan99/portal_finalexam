@@ -1,20 +1,27 @@
 package com.boot.portal_final.v1.controller;
 
 import com.boot.portal_final.v1.service.MenuSvc;
+import lombok.extern.java.Log;
+import lombok.extern.log4j.Log4j2;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.stereotype.Service;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import java.util.*;
 
 @Controller
+@Log4j2
+@RequestMapping("/templates")
 public class MenuCtrl {
 
     @Autowired
     MenuSvc menuSvc;
-    @RequestMapping("/templates/menu")
+    @RequestMapping("/menu")
     public String doMenu(Model model) {
 
 
@@ -27,5 +34,23 @@ public class MenuCtrl {
         model.addAttribute("list", list);
         model.addAttribute("hello", "=========== MenuCon ===========");
         return "/menu/menu";
+    }
+
+    @GetMapping("/menu_ins")
+    public String doInsert() {
+        return "/menu/menu_Ins";
+    }
+
+    @PostMapping("/menu_ins")
+    public String doInsertPost(@RequestParam("coffee") String strCoffee,
+                               @RequestParam("kind") String strKind,
+                               @RequestParam("price") String strPrice
+
+    ) {
+        log.info("==================================================");
+        log.info(strCoffee);
+        int i = menuSvc.doInsert(strCoffee, strKind, strPrice);
+
+        return "redirect:/templates/menu";
     }
 }
