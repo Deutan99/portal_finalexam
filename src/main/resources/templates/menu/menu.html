@@ -106,8 +106,8 @@
 
     <tr th:each="prod : ${list}">
       <td>Chk</td>
-      <td th:text="${prod.get('No')}">커피No</td>
-      <td th:text="${prod.get('name')}">메뉴명</td>
+      <td th:text="${prod.get('no')}">커피No</td>
+      <td th:text="${prod.get('coffee')}">메뉴명</td>
       <td th:text="${prod.get('kind')}">종류</td>
       <td th:text="${prod.get('price')}">가격</td>
       <td th:text="${prod.get('reg_day')}">등록일</td>

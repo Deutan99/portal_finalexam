@@ -1,5 +1,6 @@
 package com.boot.portal_final.v1.service;
 
+import com.boot.portal_final.v1.dao.MenuDao;
 import lombok.extern.log4j.Log4j2;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -13,12 +14,22 @@ import java.util.Map;
 @Log4j2
 public class MenuSvc {
 
-
+    @Autowired
+    MenuDao menuDao;
     public MenuSvc() {
         log.info("============ MenuSvc, 생성자 ==============");
     }
 
     public List<Map<String, Object>> doList() {
+
+        //Data 만들기, List, Map
+        List<Map<String, Object>> list = menuDao.doList();
+
+        log.info(list);
+
+        return list;
+    }
+    public List<Map<String, Object>> doListOld() {
 
         List<Map<String, Object>> list = new ArrayList<>();
 

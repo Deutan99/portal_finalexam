@@ -26,6 +26,8 @@ spring:
     driver-class-name: com.mysql.cj.jdbc.Driver
     url: jdbc:mysql://localhost:3306/boot?serverTimezone=UTC&allowPublicKeyRetrieval=true
 
-# Configuration mybatis
-# mybatis.mapper-locations=classpath:sqlmap/**/*.xml
+--- # Configuration mybatis
+mybatis:
+  mapper-locations:
+    classpath:sqlmapper/**/*.xml
 # mybatis.configuration.map-underscore-to-camel-case=true
