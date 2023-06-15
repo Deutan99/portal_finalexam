@@ -5,6 +5,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 @Controller
 @RequestMapping("/templates")
@@ -16,16 +17,11 @@ public class HomeCtrl {
         return "/home/home";
     }
 
+    @GetMapping("/rest2")
+    @ResponseBody
+    public  String doRest2() {
 
-    @GetMapping("/home2")
-    public String doHome2Get() {
-        System.out.println("Get");
-        return "/home/home";
-    }
-
-    @PostMapping("/home2")
-    public String doHome2Post() {
-        System.out.println("Post");
-        return "/home/home";
+        String strHtml = "<html><body> Hi Rest , Controller + ResponseBody !!! <hr> Hi. </body></html>";
+        return strHtml;
     }
 }

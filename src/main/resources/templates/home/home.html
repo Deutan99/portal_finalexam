@@ -11,12 +11,8 @@
 <body>
 
 <!-- 헤더 위치 -->
-<div class="topnav">
-  <a href="../templates/home">Home</a>
-  <a href="../templates/menu">커피메뉴</a>
-  <a href="../templates/order">주문내역</a>
-  <a href="../templates/member">고객정보</a>
-</div>
+<th:block th:replace="/comm/header :: headerFragment"></th:block>"
+
 
 
 <div id="main" style="font-size:large; alignment: center; padding: 10px 50px ">
@@ -47,10 +43,7 @@
 
 
 <!-- 푸터 위치 -->
-<div class="footer">
-  <!--    https://www.w3schools.com/html/html_emojis.asp   -->
-  <h4><span style="font-size:30px;">&#9973;</span> Spring boot Project</h4>
-</div>
+<th:block th:replace="/comm/footer :: footerFragment"></th:block>"
 
 </body>
 </html>

@@ -1,0 +1,31 @@
+--- # Configuration Port
+server:
+  port: 8081
+
+--- # Configuration Thymeleaf
+spring:
+  thymeleaf:
+    prefix: classpath:/templates
+    suffix: .html
+    cache: false
+
+
+--- # Configuration Devtools
+spring:
+  devtools:
+    livereload:
+      enabled: true
+    restart:
+      enabled: false
+
+--- # Configuration MariaDb
+spring:
+  datasource:
+    username: root
+    password: kl326570@
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/boot?serverTimezone=UTC&allowPublicKeyRetrieval=true
+
+# Configuration mybatis
+# mybatis.mapper-locations=classpath:sqlmap/**/*.xml
+# mybatis.configuration.map-underscore-to-camel-case=true
