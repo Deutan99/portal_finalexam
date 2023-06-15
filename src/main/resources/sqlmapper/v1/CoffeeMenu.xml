@@ -55,4 +55,17 @@
     <delete id="doDelete">
         Delete from coffee_menu where no = #{strNo}
     </delete>
+
+    <!--> 가격 로그 입력-->
+    <insert id="doInsertLog">
+        INSERT INTO log (coffee_no, price)
+        VALUES ( #{strNo}, #{strPrice} )
+    </insert>
+
+    <!--> 메뉴 가격 수정 -->
+    <update id="doUpdatePrice">
+        Update coffee_menu set
+        price = #{strPrice}
+        Where no = #{strNo}
+    </update>
 </mapper>

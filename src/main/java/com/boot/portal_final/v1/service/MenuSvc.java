@@ -94,4 +94,18 @@ public class MenuSvc {
         return list;
 
     }
+
+
+    /*가격 변경*/
+    public int doInsertLog(String strNo, String strPrice) {
+        int int1 = menuDao.doInsertLog(strNo, strPrice);
+        return int1;
+
+    }
+
+    public int doUpdatePrice(String strNo, String strPrice) {
+        int int2 = menuDao.doUpdatePrice(strNo, strPrice);
+        return int2;
+
+    }
 }

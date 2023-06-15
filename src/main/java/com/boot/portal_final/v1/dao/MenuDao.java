@@ -19,4 +19,8 @@ public interface MenuDao {
     int doUpdate(String strNo, String strCoffee, String strKind, String strPrice);
 
     List<Map<String, Object>> doSearch(String strStartDate, String strEndDate, String strCoffee, String strKind);
+
+    int doInsertLog(String strNo, String strPrice);
+
+    int doUpdatePrice(String strNo, String strPrice);
 }

@@ -103,4 +103,22 @@ public class MenuCtrl {
         model.addAttribute("list", list);
         return "/menu/menu";
     }
+
+    /*가격 수정 - 다중체크 */
+    @PostMapping("/menu_updatePrice")
+    public String doUpdatePrice(@RequestParam("chkCoffeeNo") List<String> chkList,
+                                @RequestParam("hidden_price") String strPrice
+
+    ) {
+        if(chkList != null) {
+
+            for(String strNo : chkList){
+                int int1 = menuSvc.doInsertLog(strNo, strPrice);
+                int int2 = menuSvc.doUpdatePrice(strNo, strPrice);
+
+            }
+        }
+
+        return "redirect:/templates/menu";
+    }
 }
