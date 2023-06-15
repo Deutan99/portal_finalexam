@@ -12,19 +12,27 @@
         FROM coffee_menu;
     </select>
 
+    <select id="doListOne" resultType="map">
+        SELECT no, coffee, kind, price,
+        DATE_FORMAT(reg_day, '%Y.%m.%d') AS reg_day,
+        DATE_FORMAT(mod_day, '%Y.%m.%d') AS mod_day
+        FROM coffee_menu
+        where no = #{strNo}
+    </select>
+
     <insert id="doInsert">
         INSERT INTO coffee_menu (coffee, kind, price)
         VALUES(#{strCoffee},#{strKind},#{strPrice})
     </insert>
 
-<!--    <update id="updateAuthor">-->
-<!--        update Author set-->
-<!--        username = #{username},-->
-<!--        password = #{password},-->
-<!--        email = #{email},-->
-<!--        bio = #{bio}-->
-<!--        where id = #{id}-->
-<!--    </update>-->
+    <update id="doUpdate">
+        update coffee_menu
+        Set
+            coffee = #{strCoffee},
+            kind = #{strKind},
+            price = #{strPrice}
+        Where no = #{strNo}
+    </update>
 
     <delete id="doDelete">
         Delete from coffee_menu where no = #{strNo}

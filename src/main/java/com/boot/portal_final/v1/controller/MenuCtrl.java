@@ -63,4 +63,28 @@ public class MenuCtrl {
 
         return "redirect:/templates/menu";
     }
+
+    @GetMapping("/menu_up")
+    public String doUpdate(Model model,
+                           @RequestParam("no") String strNO) {
+
+        Map<String, Object> map = menuSvc.doListOne(strNO);
+
+        model.addAttribute("map", map);
+
+        return "/menu/menu_up";
+    }
+
+    @PostMapping("/menu_up")
+    public String doUpdatePost(@RequestParam("no") String strNo,
+                               @RequestParam("coffee") String strCoffee,
+                               @RequestParam("kind") String strKind,
+                               @RequestParam("price") String strPrice
+
+    ) {
+
+        int i = menuSvc.doUpdate(strNo, strCoffee, strKind, strPrice);
+
+        return "redirect:/templates/menu";
+    }
 }

@@ -13,4 +13,8 @@ public interface MenuDao {
 
     int doDelete(String strNO);
 
+    Map<String, Object> doListOne(String strNO);
+
+    //update
+    int doUpdate(String strNo, String strCoffee, String strKind, String strPrice);
 }

@@ -74,4 +74,18 @@ public class MenuSvc {
         int i = menuDao.doDelete(strNO);
         return i;
     }
+
+    public Map<String, Object> doListOne(String strNO) {
+
+        Map<String, Object> map = menuDao.doListOne(strNO);
+
+        return map;
+    }
+
+    public int doUpdate(String strNo, String strCoffee, String strKind, String strPrice) {
+
+        int i = menuDao.doUpdate(strNo, strCoffee, strKind, strPrice);
+
+        return i;
+    }
 }
