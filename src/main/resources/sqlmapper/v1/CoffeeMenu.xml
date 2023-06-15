@@ -68,4 +68,26 @@
         price = #{strPrice}
         Where no = #{strNo}
     </update>
+
+    <!--> 가격 로그 입력 원쿼리-->
+    <insert id="doInsertLogOne">
+        INSERT INTO log (coffee_no, price)
+        <foreach item="item" index="index" collection="chkList" separator="UNION ALL" nullable="true">
+            SELECT #{item}, #{strPrice} FROM DUAL
+        </foreach>
+    </insert>
+
+    <!--> 메뉴 가격 수정 원쿼리-->
+    <update id="doUpdatePriceOne">
+        Update coffee_menu set
+        price = #{strPrice}
+        <where>
+            <foreach item="item" index="index" collection="chkList"
+                     open="no in (" separator="," close=")" nullable="true">
+                #{item}
+            </foreach>
+        </where>
+    </update>
+
+
 </mapper>

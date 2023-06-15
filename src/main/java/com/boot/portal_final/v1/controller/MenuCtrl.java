@@ -112,11 +112,13 @@ public class MenuCtrl {
     ) {
         if(chkList != null) {
 
-            for(String strNo : chkList){
-                int int1 = menuSvc.doInsertLog(strNo, strPrice);
-                int int2 = menuSvc.doUpdatePrice(strNo, strPrice);
-
-            }
+////            for(String strNo : chkList){
+////                int int1 = menuSvc.doInsertLog(strNo, strPrice);
+////                int int2 = menuSvc.doUpdatePrice(strNo, strPrice);
+//
+//            }
+            int int1 = menuSvc.doInsertLogOne(chkList, strPrice);
+            int int2 = menuSvc.doUpdatePriceOne(chkList, strPrice);
         }
 
         return "redirect:/templates/menu";

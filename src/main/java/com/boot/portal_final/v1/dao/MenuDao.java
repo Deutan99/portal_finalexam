@@ -23,4 +23,9 @@ public interface MenuDao {
     int doInsertLog(String strNo, String strPrice);
 
     int doUpdatePrice(String strNo, String strPrice);
+
+    int doInsertLogOne(List<String> chkList, String strPrice);
+
+    int doUpdatePriceOne(List<String> chkList, String strPrice);
+
 }

@@ -108,4 +108,15 @@ public class MenuSvc {
         return int2;
 
     }
+
+    public int doInsertLogOne(List<String> chkList, String strPrice) {
+        int int1 = menuDao.doInsertLogOne(chkList, strPrice);
+
+        return int1;
+    }
+
+    public int doUpdatePriceOne(List<String> chkList, String strPrice) {
+        int int2 = menuDao.doUpdatePriceOne(chkList, strPrice);
+        return int2;
+    }
 }
